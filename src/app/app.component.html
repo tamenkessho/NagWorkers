@@ -1,14 +1,19 @@
 <html>
-<header class="accordion-header" style="color: whitesmoke; background-color: grey">
+<head>
+  <link rel="stylesheet" type="text/css" href="app.component.css"/>
+</head>
+<header class="hdr">
 <!--  <h3>Example AUTH application</h3>-->
 <div style="text-align: center">
-  <button (click)="route = 'main'" class="btn-dark" style="margin: 30px">Main page</button>
-  <button (click)="route = 'login'" class="btn-dark" style="margin: 30px">Login page</button>
-  <button (click)="route = 'dishes'" class="btn-dark" style="margin: 30px">Dishes page</button>
+  <button (click)="changeRoute('main')" class="btn-meine">Main page</button>
+  <button (click)="changeRoute('login')" class="btn-meine">Login page</button>
+  <button (click)="changeRoute('dishes')" class="btn-meine">Dishes page</button>
 </div>
 </header>
 
-<app-main-page *ngIf="route==='main'"></app-main-page>
-<app-login-page *ngIf="route==='login'"></app-login-page>
-<app-dishes-page *ngIf="route==='dishes'"></app-dishes-page>
+<router-outlet></router-outlet>
+
+<!--<app-main-page *ngIf="route==='main'"></app-main-page>-->
+<!--<app-login-page *ngIf="route==='login'"></app-login-page>-->
+<!--<app-dishes-page *ngIf="route==='dishes'"></app-dishes-page>-->
 </html>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,10 @@ export class AppComponent {
   title = 'ExampleProjectAUTH';
   route: string = "";
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
+  changeRoute(urlArg: string) {
+    this.router.navigate([urlArg])
+  }
 }

@@ -1,0 +1,18 @@
+<div class="forma">
+  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" class="formachka">
+    <input class="widthinput"
+           id="email"
+           name="email"
+           ngModel>
+
+    <input class="widthinput"
+           id="password"
+           name="password"
+           ngModel
+           type="password">
+
+    <button *ngIf="!authorizationService.getStatus()" class="mysubmit" type="submit">Log in</button>
+    <button *ngIf="authorizationService.getStatus()" class="mysubmit" type="submit">Log out</button>
+
+  </form>
+</div>

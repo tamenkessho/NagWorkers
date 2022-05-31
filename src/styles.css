@@ -1,1 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+.forma {
+  width: 60vw;
+  margin-top: 35vh;
+  margin-left: 20vw;
+}
