@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-dishes-page',
@@ -9,12 +9,13 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 export class DishesPageComponent implements OnInit {
   output: any;
 
-  constructor(private client: HttpClient) { }
+  constructor(private client: HttpClient) {
+  }
 
   ngOnInit(): void {
     this.client.post("http://localhost:8099/dishes",
       {email: "marketing@poollotto.finance", password: "o2m4utv=9", responseType: 'text'})
-      .subscribe(value => this.output=value)
+      .subscribe(value => this.output = value)
   }
 
 }

@@ -3,7 +3,6 @@ import {NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {AuthorizationService} from "../authorization.service";
 import {Router} from "@angular/router";
-import {map} from "rxjs";
 
 @Component({
   selector: 'app-login-page',
@@ -11,9 +10,9 @@ import {map} from "rxjs";
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  authorizationService: AuthorizationService;
   private client: HttpClient;
   private auth: AuthorizationService;
-  authorizationService: AuthorizationService;
 
   constructor(client: HttpClient,
               auth: AuthorizationService,
@@ -31,11 +30,11 @@ export class LoginPageComponent implements OnInit {
     let result = authForm.value;
     console.log(result)
     this.auth.onLogin(result.email, result.password)
-      .subscribe(res=>{
+      .subscribe(res => {
         console.log(res);
         const token = res
         console.log(token);
-        if(token!=="ojwgi10yt349cm1=0ry9n249vnb94wu04w[nb"){
+        if (token !== "ojwgi10yt349cm1=0ry9n249vnb94wu04w[nb") {
           this.router.navigate(['dishes']);
         }
       })
