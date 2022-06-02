@@ -1,11 +1,11 @@
 <p>main-page works!</p>
-<h2 *ngIf="currentStatus">
+<h2 *ngIf="(currentStatus|async)">
   Your main page is switched on!
 </h2>
-<h2 *ngIf="!currentStatus">
+<h2 *ngIf="!(currentStatus|async)">
   Your main page is switched off!
 </h2>
-{{currentStatus}}
+{{(currentStatus|async)}}
 
 <button (click)="changeStatus()"><h3>A big one)</h3>
 </button>

@@ -2,7 +2,9 @@ import {NgModule} from '@angular/core';
 import {CoreModule} from "./core.module";
 import {AppComponent} from "./app.component";
 import { StoreModule } from '@ngrx/store';
-import {reducers} from "./ngrx-storage/reducers";
+import {mainButtonReducer} from "./Store/main.button.reducer";
+import {ToggleMainButton} from "./Store/actions";
 
-@NgModule({ imports: [ CoreModule, StoreModule.forRoot(reducers) ], bootstrap: [AppComponent] })
+@NgModule({ imports: [ CoreModule, StoreModule.forRoot(
+ {mainPageState: mainButtonReducer}) ], bootstrap: [AppComponent] })
 export class AppModule { }
