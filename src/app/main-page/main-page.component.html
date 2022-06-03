@@ -1,10 +1,11 @@
-<p>main-page works!</p>
-<h2 *ngIf="currentStatus">
+<div style="margin-top: 70px; text-align: center">
+
+<h2 *ngIf="currentStatus" style="background-color: #ddffe9">
   Your main page is switched on!
 </h2>
-<h2 *ngIf="!currentStatus">
+<h2 *ngIf="!currentStatus" style="background-color: #ffdde1">
   Your main page is switched off!
 </h2>
-{{currentStatus}}
-<button (click)="changeStatus()"><h3>A big one)</h3>
+<button (click)="changeStatus()" style="margin-top: 50px" class="btn-light"><h3>Big Bad Button!</h3>
 </button>
+</div>

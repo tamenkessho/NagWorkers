@@ -18,6 +18,8 @@ export class AuthGuard implements CanActivate {
     let authefied = this.authService.getStatus();
     if (!authefied)
       this.router.navigate(["/login"])
+    // else
+    //   this.router.navigate(["/workers"])
     return authefied;
   }
 }

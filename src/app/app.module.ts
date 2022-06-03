@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {AppComponent} from "./app.component";
 import {StoreModule} from '@ngrx/store';
-import {appReducer} from "./store/app.reducer";
+import {appStorage} from "./store/app.storage";
 import {LoginPageComponent} from "./login-page/login-page.component";
 import {MainPageComponent} from "./main-page/main-page.component";
 import {RouterModule, Routes} from "@angular/router";
 import {AuthGuard} from "./auth.guard";
-import {DishesPageComponent} from "./dishes-page/dishes-page.component";
+import {WorkersPageComponent} from "./workers-page/workers-page.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
@@ -16,9 +16,9 @@ import {environment} from "../environments/environment.prod";
 
 const routes: Routes = [
   {
-    path: 'dishes',
+    path: 'workers',
     canActivate: [AuthGuard],
-    component: DishesPageComponent
+    component: WorkersPageComponent
   }, {
     path: 'main',
     component: MainPageComponent
@@ -33,13 +33,13 @@ const routes: Routes = [
     AppComponent,
     MainPageComponent,
     LoginPageComponent,
-    DishesPageComponent],
+    WorkersPageComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot(appStorage),
     StoreDevtoolsModule.instrument({
       name: 'NgRx Demo App',
       logOnly: environment.production

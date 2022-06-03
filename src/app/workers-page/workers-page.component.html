@@ -1,0 +1,32 @@
+<div style="size:1000px">
+  <div style="margin-left:100px">
+    <h2> NAG corp guys: </h2>
+    <p>Holly cow, they created a huge team, take care!{{output}}</p>
+  </div>
+
+  <div style="margin-left:50px">
+    <input [(ngModel)]="name">
+    <input [(ngModel)]="department">
+    <input [(ngModel)]="age">
+    <button
+      (click)="saveData()">
+      Add a new NAGger
+    </button>
+    <button
+      (click)="updateMyUser(name, department, age)"
+      *ngIf="editingRightNow">
+      Update NAGger
+    </button>
+
+    <hr style="margin-bottom: 100px">
+
+    <div style="margin: 20px" (click)="uploadEditNag(nagWorker)" *ngFor="let nagWorker of nagWorkers">
+<hr>
+      <p>NAGger name: {{nagWorker.name}}, age: {{nagWorker.age}}</p>
+      <p>He/She works in {{nagWorker.dept}} department
+        <button (click)="deleteWorker(nagWorker)">Delete</button>
+      </p>
+      <hr>
+    </div>
+  </div>
+</div>

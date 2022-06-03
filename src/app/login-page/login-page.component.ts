@@ -23,8 +23,7 @@ export class LoginPageComponent implements OnInit {
     this.auth = auth
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit(authForm: NgForm) {
     let result = authForm.value;
@@ -34,9 +33,8 @@ export class LoginPageComponent implements OnInit {
         console.log(res);
         const token = res
         console.log(token);
-        if (token !== "ojwgi10yt349cm1=0ry9n249vnb94wu04w[nb") {
-          this.router.navigate(['dishes']);
-        }
+
+        this.router.navigate(['workers']);
       })
   }
 }
