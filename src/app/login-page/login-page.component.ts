@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
 import {AuthorizationService} from "../authorization.service";
 import {Router} from "@angular/router";
 
@@ -11,15 +10,13 @@ import {Router} from "@angular/router";
 })
 export class LoginPageComponent implements OnInit {
   authorizationService: AuthorizationService;
-  private client: HttpClient;
   private auth: AuthorizationService;
 
-  constructor(client: HttpClient,
-              auth: AuthorizationService,
-              private router: Router,
-              authorizationService: AuthorizationService) {
+  constructor(
+    auth: AuthorizationService,
+    private router: Router,
+    authorizationService: AuthorizationService) {
     this.authorizationService = authorizationService;
-    this.client = client
     this.auth = auth
   }
 
@@ -29,9 +26,8 @@ export class LoginPageComponent implements OnInit {
     let result = authForm.value;
     console.log(result)
     this.auth.onLogin(result.email, result.password)
-      .subscribe(res => {
-        console.log(res);
-        const token = res
+      .subscribe(resForm => {
+        const token = resForm.token
         console.log(token);
 
         this.router.navigate(['workers']);

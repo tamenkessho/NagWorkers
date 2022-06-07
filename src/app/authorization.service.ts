@@ -12,11 +12,10 @@ export class AuthorizationService {
   }
 
   public onLogin(email: string, password: string) {
-    console.log(password)
-    console.log(email);
 
-    let response = this.client.post("http://localhost:8099/authorize",
-      {email: email, password: password, responseType: 'text'})
+
+    let response = this.client.post<{ token: string }>("http://localhost:8099/authorize",
+      {email: email, password: password})
     this.switchStatus();
     return response;
   }

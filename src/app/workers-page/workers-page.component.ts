@@ -11,11 +11,10 @@ import {NagWorker} from "../store/workers.form.reducer";
   styleUrls: ['./workers-page.component.css']
 })
 export class WorkersPageComponent implements OnInit {
-  output: any;
   nagWorkers: NagWorker[];
-  name: string = "Alex";
-  department: string = "Software engineering";
-  age: string = "31";
+  name: string = "Vladimir Polovchuck";
+  department: string = "Softwareentwicklung";
+  age: string = "41";
   editingRightNow: boolean = false;
   editingNagger: NagWorker = null;
 
@@ -25,15 +24,9 @@ export class WorkersPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.client.post("http://localhost:8099/dishes",
-      {email: "marketing@poollotto.finance", password: "o2m4utv=9", responseType: 'text'})
-      .subscribe(value => this.output = value)
-    this.store.select("workersPage").subscribe(nextPage => {
-        // console.log("Began loading")
-        this.nagWorkers = nextPage.currentWorkers;
-      }
-    );
-    //success
+    this.store.select("workersPage").subscribe(value => {
+      this.nagWorkers = value.currentWorkers
+    })
   }
 
   saveData() {

@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {ToggleMainButton} from "../store/actions";
+import {InitWorkers, ToggleMainButton} from "../store/actions";
 import {AppState} from "../store/app.storage";
+import {HttpClient} from "@angular/common/http";
+import {NagWorker} from "../store/workers.form.reducer";
 
 @Component({
   selector: 'app-main-page',
@@ -11,7 +13,8 @@ import {AppState} from "../store/app.storage";
 export class MainPageComponent implements OnInit {
   currentStatus: boolean = true;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>,
+              private client: HttpClient) {
   }
 
   ngOnInit(): void {
@@ -19,6 +22,14 @@ export class MainPageComponent implements OnInit {
       store => {                               //save it to local var
         this.currentStatus = store.buttonState   //declare new value to the program
       });
+
+
+    this.client.get<NagWorker[]>("http://localhost:8099/nag/data?token=armane").
+    subscribe(newData=> {
+      console.log(newData);
+      this.store.dispatch(new InitWorkers(newData))
+    })
+
   }
 
   changeStatus() {

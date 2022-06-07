@@ -25,4 +25,10 @@ export class UpdateWorker implements Action{
   constructor(public payload: NagWorker) {}
 }
 
-export type Workers = |AddWorker |DeleteWorker |UpdateWorker
+export const INIT_WORKERS = "INIT_WORKERS";
+export class InitWorkers implements Action{
+  readonly type = INIT_WORKERS;
+  constructor(public payload: NagWorker[]) {}
+}
+
+export type Workers = |AddWorker |DeleteWorker |UpdateWorker |InitWorkers
