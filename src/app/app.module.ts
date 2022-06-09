@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {AppComponent} from "./app.component";
 import {StoreModule} from '@ngrx/store';
-import {appStorage} from "./store/app.storage";
+import {appStorage, effects} from "./store/app.storage";
 import {LoginPageComponent} from "./login-page/login-page.component";
 import {MainPageComponent} from "./main-page/main-page.component";
 import {RouterModule, Routes} from "@angular/router";
@@ -13,6 +13,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {AuthorizationService} from "./authorization.service";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment.prod";
+import {EffectsModule} from "@ngrx/effects";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -40,10 +42,12 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(appStorage),
+    EffectsModule.forRoot(effects),
+    BrowserAnimationsModule,
     StoreDevtoolsModule.instrument({
       name: 'NgRx Demo App',
       logOnly: environment.production
-    })
+    }),
   ],
   providers: [AuthorizationService],
   bootstrap: [AppComponent],

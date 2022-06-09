@@ -1,4 +1,4 @@
-<html>
+<html [@mainPageAnimate] = "state">
 <head>
   <link href="app.component.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -7,8 +7,12 @@
     <button (click)="changeRoute('main')" class="btn-meine">Main page</button>
     <button (click)="changeRoute('login')" class="btn-meine">Login page</button>
     <button (click)="changeRoute('workers')" class="btn-meine">Dishes page</button>
+    <button (click)="lightMode()">Blind attack!</button>
   </div>
 </header>
+<div>
+  <router-outlet>
 
-<router-outlet></router-outlet>
+  </router-outlet>
+</div>
 </html>

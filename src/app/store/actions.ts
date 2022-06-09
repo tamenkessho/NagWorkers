@@ -7,6 +7,11 @@ export class ToggleMainButton implements Action {
   constructor(public payload: boolean) {}
 }
 
+export const TOGGLE_SUCCESS = "TOGGLE_SUCCESS";
+export class ToggleSuccess implements Action {
+  readonly type = TOGGLE_SUCCESS;
+}
+
 export const ADD_WORKER = "ADD_WORKER";
 export class AddWorker implements Action{
   readonly type = ADD_WORKER;

@@ -4,27 +4,29 @@ import {HttpClient} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthorizationService {
+  private authStatus: boolean = false;
 
-  private status: boolean = false;
+  constructor(private client: HttpClient,) {}
 
-  constructor(private client: HttpClient) {
-  }
-
-  public onLogin(email: string, password: string) {
-
-
+  onLogin(email: string, password: string) {
     let response = this.client.post<{ token: string }>("http://localhost:8099/authorize",
       {email: email, password: password})
     this.switchStatus();
+    if (this.authStatus) {
+      this.saveCredentials(email, password)
+    } else {localStorage.clear()}
     return response;
   }
 
-  getStatus(): boolean {
-    return this.status;
-  }
+  getStatus(): boolean {return this.authStatus;}
 
-  switchStatus(): void {
-    this.status = !this.status;
+  switchStatus() {this.authStatus = !this.authStatus;}
+
+  saveCredentials(email: string, password: string) {
+    localStorage.setItem("email", email)
+    localStorage.setItem("passwort", password)
+    console.log("creds. saved///")
   }
 }

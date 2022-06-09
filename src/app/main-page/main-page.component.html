@@ -1,11 +1,24 @@
 <div style="margin-top: 70px; text-align: center">
 
-<h2 *ngIf="currentStatus" style="background-color: #ddffe9">
-  Your main page is switched on!
-</h2>
-<h2 *ngIf="!currentStatus" style="background-color: #ffdde1">
-  Your main page is switched off!
-</h2>
-<button (click)="changeStatus()" style="margin-top: 50px" class="btn-light"><h3>Big Bad Button!</h3>
-</button>
+  <h2 *ngIf="currentStatus" style="background-color: #ddffe9">
+    Your main page is switched on!
+  </h2>
+  <h2 *ngIf="!currentStatus" style="background-color: #ffdde1">
+    Your main page is switched off!
+  </h2>
+  <button (click)="changeStatus()" class="btn-light" style="margin-top: 50px"><h3>Big Bad Button!</h3>
+  </button>
+
+  <div
+    [@divState]="state"
+    style="height: 100px;
+    width: 100px;">:D
+  </div>
+  <button (click)="animateBeginning()" [disabled]="ifFirst">First</button>
+  <i>...</i>
+  <button (click)="animateBack()" [disabled]="ifFirst"><--</button>
+  <button (click)="animateForward()" [disabled]="ifLast">--></button>
+  <i>...</i>
+  <button (click)="animateFinal()" [disabled]="ifLast">Last</button>
+  <hr>
 </div>

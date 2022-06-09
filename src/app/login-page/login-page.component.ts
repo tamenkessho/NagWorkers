@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent{
   authorizationService: AuthorizationService;
   private auth: AuthorizationService;
 
@@ -19,8 +19,6 @@ export class LoginPageComponent implements OnInit {
     this.authorizationService = authorizationService;
     this.auth = auth
   }
-
-  ngOnInit(): void {}
 
   onSubmit(authForm: NgForm) {
     let result = authForm.value;
