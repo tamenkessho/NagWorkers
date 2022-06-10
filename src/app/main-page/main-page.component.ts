@@ -11,21 +11,30 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css'],
   animations: [
-    trigger('divState', [
+    trigger('divSta' +
+      '' +
+      '' +
+      '' +
+      '' +
+      '' +
+      '' +
+      '' +
+      '' +
+      'te', [
       state('1', style({
         'background-color': '#eeeeee',
         'color': '#000000',
-        transform: 'translateX(0)'
+        transform: 'translateX(0) scale(1.1)'
       })),
       state('2', style({
-        'background-color': '#72ff00',
+        'background-color': '#cc4fff',
         'color': '#000000',
-        transform: 'translateX(100px)'
+        transform: 'translateX(100px) scale(0.6)'
       })),
       state('3', style({
         'background-color': '#000000',
         'color': '#ffffff',
-        transform: 'translateX(200px)'
+        transform: 'translateX(200px) scale(1)'
       })),
       transition('1 <=> 2', animate(1000)),
       transition('2 <=> 3', animate(1000)),
