@@ -11,16 +11,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css'],
   animations: [
-    trigger('divSta' +
-      '' +
-      '' +
-      '' +
-      '' +
-      '' +
-      '' +
-      '' +
-      '' +
-      'te', [
+    trigger('divState', [
       state('1', style({
         'background-color': '#eeeeee',
         'color': '#000000',
