@@ -9,29 +9,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css'],
-  animations: [
-    trigger('divState', [
-      state('1', style({
-        'background-color': '#eeeeee',
-        'color': '#000000',
-        transform: 'translateX(0) scale(1.1)'
-      })),
-      state('2', style({
-        'background-color': '#cc4fff',
-        'color': '#000000',
-        transform: 'translateX(100px) scale(0.6)'
-      })),
-      state('3', style({
-        'background-color': '#000000',
-        'color': '#ffffff',
-        transform: 'translateX(200px) scale(1)'
-      })),
-      transition('1 <=> 2', animate(1000)),
-      transition('2 <=> 3', animate(1000)),
-      transition('1 <=> 3', animate(2400)),
-    ])]
-})
+  styleUrls: ['./main-page.component.css']})
 export class MainPageComponent implements OnInit {
   currentStatus: boolean = true;
   state = '1';
