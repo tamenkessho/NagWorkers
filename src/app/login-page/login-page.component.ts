@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {AuthorizationService} from "../authorization.service";
 import {Router} from "@angular/router";

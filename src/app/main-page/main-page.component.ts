@@ -4,7 +4,6 @@ import {InitWorkers, ToggleMainButton} from "../store/actions";
 import {AppState} from "../store/app.storage";
 import {HttpClient} from "@angular/common/http";
 import {NagWorker} from "../store/workers.form.reducer";
-import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-main-page',

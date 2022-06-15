@@ -1,6 +1,6 @@
-import {Actions, createEffect, Effect, ofType} from "@ngrx/effects";
-import {TOGGLE_MAIN_BUTTON, ToggleMainButton, ToggleSuccess} from "./store/actions";
-import {map, switchMap} from "rxjs";
+import {Actions, createEffect, ofType} from "@ngrx/effects";
+import {TOGGLE_MAIN_BUTTON, ToggleSuccess} from "./store/actions";
+import {map} from "rxjs";
 import {Injectable} from "@angular/core";
 
 @Injectable()
